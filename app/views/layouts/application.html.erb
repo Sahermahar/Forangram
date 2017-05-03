@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Forangram</title>
+    <title>Tasveergram</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -36,6 +36,13 @@
     </div>
   </div>
 </nav>
-    <%= yield %>
+   <div class="container">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+  <% end %>
+
+  <%= yield %>
+
+</div>
   </body>
 </html>
